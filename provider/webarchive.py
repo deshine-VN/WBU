@@ -8,6 +8,7 @@ class WebArchive:
         while True:
             response = requests.get("https://web.archive.org/cdx/search/cdx?url={}/*&output=json&collapse=urlkey&fl=original".format(url), headers=config.headers)
             if response.status_code == 200:
+                sleep(3)
                 break
             sleep(1)
         result_urls = response.json()
