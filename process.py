@@ -19,6 +19,6 @@ class Process:
             url = url[:-1]
         result = []
         result.extend(WebArchive.query(url))
-        result.extend(CommonCrawl.query(url))
+        # result.extend(CommonCrawl.query(url))
         result = list(set(result))
         print("\n".join(list(result)))
