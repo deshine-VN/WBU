@@ -6,10 +6,9 @@ import json
 class CommonCrawl:
     @staticmethod
     def query(url):
-        cdx_apis = requests.get("http://index.commoncrawl.org/collinfo.json", headers=config.headers).json()
         result_urls = []
         while True:
-            response = requests.get("{}?url={}/*&output=json&fl=url".format(cdx_apis[0]["cdx-api"], url), headers=config.headers)
+            response = requests.get("https://index.commoncrawl.org/CC-MAIN-2024-10-index?url={}/*&output=json&fl=url".format(url), headers=config.headers)
             if response.status_code != 503:
                 break
             sleep(1)
